@@ -1,0 +1,2 @@
+//$("body").prepend('<div class="popup-wrap"> <div class="popup-box"> <video id="video" playsinline  muted> <source src="https://iocl.com/uploads/INDIAN_OIL_CGI.mp4" type="video/mp4"> <source src="https://iocl.com/uploads/INDIAN_OIL_CGI.mp4" type="video/ogg"> </video> <a class="close-btn popup-close" href="#">x</a> </div> </div>')
+

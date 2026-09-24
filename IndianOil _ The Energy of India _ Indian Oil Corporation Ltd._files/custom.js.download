@@ -1,0 +1,230 @@
+$("body").prepend('<div id="loaderOverlay"><div class="custom-loader"><img src="/images/preloader.gif"/> <span>Loading<span class="one">.</span><span class="two">.</span><span class="three">.</span></span></div></div>');
+// $('.homeProductListing li.Scholarship').remove();
+// $(".quote-txt-main p").html('<b>EVERYDAY<br/>We are creating history!</b><br/>We delight over three crore customers who visit our fuel stations. Over 26 lakh households who receive Indane cylinders. And the crew of over 2300 flights that we fuel. 16 thousand tank trucks travel almost 15 lakh km to deliver our products. 24,600 vehicles for bulk & packed LPG ply almost 25 lakh km to fuel the kitchens.<br/><br/>Our pipelines network transports over 133 TMT of crude oil and more than 93 TMT of products. Our Bitumen carpets 130 km of roads and highways in India. Our refineries generate 20 Gigawatt hour captive power.')
+
+$('.fa-twitter').html('<svg viewBox="0 0 24 24" aria-hidden="true" class="r-18jsvk2 r-4qtqp9 r-yyyyoo r-16y2uox r-8kz0gk r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-lrsllp" style=" width: 16px; fill: white; vertical-align: text-top;"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>')
+$(window).on('load', function () {
+	 if (window.location.pathname === '/atf-domestic-airlines') {
+        window.location.href = '/'; // home page
+    }
+	// var video = $('#video')[0];
+	// video.play();
+	// $(video).on('click', function () {video.play()})
+// $(video).on('ended', function () {
+    // console.log('Video has ended!');
+	
+    // $(".popup-wrap").hide();
+// });
+    // PAGE IS FULLY LOADED
+    // FADE OUT YOUR OVERLAYING DIV
+	
+    $('#loaderOverlay').remove();
+    $('.site-nav > ul > li:nth-child(4)').addClass('nav-revert');
+	// $('#timer').css('height', '109');
+    // $('#timer').css('borderBottom', '2px solid #20404b');
+    // $('.slide-block-wrap .slide-block:nth-child(1)').css('height', '179px')	
+	// $('.slide-block-wrap .slide-block:nth-child(1)').append('<h4 class="small-label" style="font-size: 14px; font-weight: bold; background: #072762; padding: 5px;">India Energy Week 2023 - Theme Tune</h4><audio controls="" style="width: 90%; margin-top: 5px; height: 30px; margin-left: 10px;"><source src="https://iocl.com/uploads/IEWMogo.mp3" type="audio/mp3"></audio>');
+    const newAudioSrc = "../uploads/EP170.mp3";
+    const $audioSource = $('.pod audio source');
+    if ($audioSource.length) {
+        // Update the src attribute
+        $audioSource.attr('src', newAudioSrc);
+
+        // Reload the audio element to apply the new source
+        $audioSource.closest('audio')[0].load();
+    }
+    $('li.nav-item.dropdown > a[href="/pages/SportsUpdates"]').append(`
+        <img src="https://iocl.com/Images/new_blinker.gif">
+    `);
+		$('.footer-right a').filter(function () {
+        return $(this).text().trim() === 'Powered By PECS';
+    }).parent('span').hide();
+	$('.footer-right a').filter(function () {
+        return $(this).text().trim() === 'पीईसीएस द्वारा संचालित';
+    }).parent('span').hide();
+    
+});
+
+
+$(".homeProductListing").find("li").hover(
+    function () {
+        $(".bgfullImg").removeAttr("class").addClass("bgfullImg " + $(this).attr("class") + "BG");
+        setTimeout(function () {
+            $(".bgfullImg").addClass("fadeIn hover");
+        }, 750);
+    },
+    function () { $(".bgfullImg").removeAttr("class").addClass("bgfullImg MotoristBG"); }
+);
+
+
+$(window).scroll(function () {
+    var sticky = $('.site-header'),
+        scroll = $(window).scrollTop();
+    if (scroll >= 100) { sticky.addClass('fixed'); }
+    else { sticky.removeClass('fixed'); }
+});
+
+
+$('.search-click').click(function () {
+    $('.search-wrap').addClass('act');
+    $('.search-overlay').addClass('act');
+    $('body').addClass('navOpen');
+});
+
+$('.search-close').click(function () {
+    $('.search-wrap').removeClass('act');
+    $('.search-overlay').removeClass('act');
+    $('body').removeClass('navOpen');
+});
+
+
+$(".site-nav ul li a").each(function () {
+    if ($(this).parent().find('ul').length > 0) {
+        $(this).parent().prepend('<span class="subDropAlt"></span>');
+        $(this).parent().addClass('has-sub');
+    } else {
+    }
+});
+
+$('.subDropAlt').click(function () {
+    $(this).parent().find('> ul').slideToggle();
+});
+
+$('.mobClick').click(function () {
+    $(this).toggleClass('open');
+    $('.site-nav').toggleClass('act');
+    $('.nav-overlay').toggleClass('act');
+    $('body').toggleClass('navOpen');
+});
+
+$('.navClose').click(function () {
+    $('.nav-container').toggleClass('act');
+});
+
+
+$(".slider").jasCarousel({
+    margin: 5,
+    auto: true,
+    speed: 800,
+    delay: 5000,
+    slideFrontFace: false,
+    perspective: 800,    
+    moveOnSlideClick: true,
+});
+
+$('#video-gallery').lightGallery();
+$('#video-gallery2').lightGallery();
+
+
+/*(function($){
+  $(window).on("load",function(){
+    $("#content-1").mCustomScrollbar({
+      //theme:"minimal"
+    });
+  });
+})*/(jQuery);
+
+
+$(document).ready(function () {
+	 if (window.location.href.indexOf("/aviation-fuel") > -1) {
+        $("#initialdata").hide(); 
+    }
+	$('.price-list-single h2 a').each(function () {
+
+        var text = $(this).text().trim();
+
+        // English case
+        if (text.includes('ATF Prices in Metros (Rupees/Kl) for Domestic Airlines')) {
+            $(this).text('ATF Prices in Metros (Rupees/Kl) for Scheduled Domestic Airlines');
+
+            $(this).closest('.price-list-single').find('.btn-group').remove();
+        }
+
+        // Hindi case
+        else if (text.includes('मेट्रो शहरों में ATF कीमतें (रुपये/किलोलीटर) – घरेलू एयरलाइंस हेतु')) {
+            // $(this).text('मेट्रो शहरों में ATF कीमतें (रुपये/किलोलीटर) – अनुसूचित घरेलू एयरलाइंस हेतु');
+
+            $(this).closest('.price-list-single').find('.btn-group').remove();
+        }
+    });	
+$('.price-list-single').each(function () {
+    var heading = $(this).find('h2 a').text().trim();
+
+    if (heading === 'ATF Prices in Metros (Dollars/Kl) for Domestic Airlines on International Run') {
+        $(this).closest('.col-lg-6').hide();
+    }
+	 if (heading === 'मेट्रो शहरों में ATF कीमतें (डॉलर/किलोलीटर) – अंतरराष्ट्रीय उड़ानों हेतु') {
+        $(this).closest('.col-lg-6').hide();
+    }
+});
+    $('.custom-select').select2({
+        minimumResultsForSearch: -1
+    });
+	 $("li.nav-item.dropdown.has-sub > a:contains('Disclosure for Investors')")
+     .next("ul")
+     .addClass("mscroll");
+	 
+	 $(".price-list-single").each(function () {
+ 
+        const headingText = $(this).find("h2 a").text();
+ 
+        if (headingText.includes("AutoGas Prices in Metros")) {
+ 
+            $(this).find("table tr").each(function () {
+                if ($(this).find("td:first").text().trim() === "Delhi") {
+                    $(this).remove();
+                }
+            });
+        }
+    });
+	
+});
+
+
+
+(function () {
+  // Check page URL
+  if (window.location.href.includes("prices-of-petroleum-products")) {
+
+    // Helper function to update text
+    function updateKolkataDate() {
+      const paragraphs = document.querySelectorAll("p");
+      let found = false;
+
+      paragraphs.forEach((p) => {
+        if (p.textContent.includes("Effective") && p.textContent.includes("for Kolkata")) {
+          p.textContent = p.textContent.replace(
+            /Effective\s+\d{2}\.\d{2}\.\d{4}/,
+            "Effective 01.08.2024"
+          );
+          found = true;
+        }
+      });
+
+      if (found) {
+        console.log("!");
+      } else {
+        console.log("ℹ️ Line not found yet — retrying in 1 second...");
+        setTimeout(updateKolkataDate, 1000);
+      }
+    }
+
+    // Run immediately after page load
+    updateKolkataDate();
+  } else {
+    console.log("⚠️ Not on the 'prices-of-petroleum-products' page — script skipped.");
+  }
+})();
+
+
+ document.addEventListener("DOMContentLoaded", function () {
+        const button = document.querySelector('.select-sec .row').children[2];
+
+        button.classList.add(
+            "col-xl-4",
+            "col-lg-6",
+            "d-flex",
+            "py-4",
+            "justify-content-xl-end"
+        );
+    });
